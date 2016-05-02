@@ -45,7 +45,7 @@ myJW7Plugin.adPlayer.adClickThroughOpened();
 * `category` : \<string\> content category is used by Ooyala Pulse to target ads and determine
     the ad insertion policy. The content category can be represented by either its unique id or one
     of its aliases set in Ooyala Pulse.
-* `contentForm` : \<OO.adrequest.AdRequester.ContentForm>  Content form is used to determine the ad insertion policy.
+* `contentForm` : \<[OO.adrequest.AdRequester.ContentForm](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc4__anchor)>  Content form is used to determine the ad insertion policy.
 * `id` : \<string>  Ooyala Pulse content id. Id is used to identify the content to third parties.
 * `contentPartner`: \<string>  Ooyala Pulse content partner. Content partners can be used by
     Ooyala Pulse to target ads. The content partner can be represented by either its unique id or one of its
@@ -63,7 +63,7 @@ myJW7Plugin.adPlayer.adClickThroughOpened();
 * `maxBitRate` : \<number>  The maximum bitrate of the media files in the ad response.
 * `linearPlaybackPositions` : \<number[]> An Array of numbers which define at what points in time linear ads should be shown.
 * `nonlinearPlaybackPositions`: \<number[]>  An Array of numbers which define at what points in time non-linear ads should be shown.
-* `insertionPointFilter` : \<OO.adrequest.AdRequester.InsertionPointType>  If not set, the request is for every kind of insertion point. If set, only the types provided are requested.
+* `insertionPointFilter` : \<[OO.adrequest.AdRequester.InsertionPointType](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor)>  If not set, the request is for every kind of insertion point. If set, only the types provided are requested.
 * `width` : \<number>  Width in pixels of the video area where ads should be shown.
 * `referrerUrl` : \<string>  Overrides the HTTP header's referrer property.
 * `linearSlotSize` : \<number>  Overrides the number of linear ads per slot.
