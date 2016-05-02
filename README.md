@@ -41,13 +41,13 @@ to the plugin when it is created:
     ```
 ## Session settings
 
-```javascript
-{
+
+
          category: <string> content category is used by Ooyala Pulse to target ads and determine
             the ad insertion policy. The content category can be represented by either its unique id or one
             of its aliases set in Ooyala Pulse.
             contentForm: <OO.adrequest.AdRequester.ContentForm>  Content form is used to determine the ad insertion policy.
-         id: <string>  Ooyala Pulse content id. Id is used to identify the content to 3rd parties.
+         id: <string>  Ooyala Pulse content id. Id is used to identify the content to third parties.
          contentPartner: <string>  Ooyala Pulse content partner. Content partners can be used by
             Ooyala Pulse to target ads. The content partner can be represented by either its unique id or one of its
             aliases set in Ooyala Pulse.
@@ -69,9 +69,9 @@ to the plugin when it is created:
          referrerUrl: <string>  Overrides the HTTP header's referrer property.
          linearSlotSize: <number>  Overrides the number of linear ads per slot.
             Using this affects the predictability of the Ooyala Pulse forecast functionality. Use with caution.
-}
-```
+
+
 
 The sessionSettings object is a combination of contentMetadata and requestSettings, used by the Pulse SDK. You can see their description [here](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.html)
 # API Docs
-The full API docs are available in the wiki.
+The full API docs are available in the [wiki](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7/wiki/Pulse-JW7-plugin-API-documentation).
