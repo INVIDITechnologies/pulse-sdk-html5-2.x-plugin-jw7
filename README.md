@@ -35,40 +35,40 @@ to the plugin when it is created:
 ```
 var myJW7Plugin = new OO.Pulse.JW7Plugin(myJWPlayer, pulseSettings, function(clickThroughURL){ console.log("the ad was clicked!"});
 ```
-If you open the clickthrough URL, be sure to call `adClickThroughOpened` on the plugin's `adPlayer` object o correct tracking can be done.
+If you open the clickthrough URL, be sure to call `adClickThroughOpened` on the plugin's `adPlayer` object so correct tracking can be done.
 ```
 myJW7Plugin.adPlayer.adClickThroughOpened();
 ```
 ## Session settings
 
-```
-category: <string> content category is used by Ooyala Pulse to target ads and determine
+
+* `category` : \<string\> content category is used by Ooyala Pulse to target ads and determine
     the ad insertion policy. The content category can be represented by either its unique id or one
     of its aliases set in Ooyala Pulse.
-contentForm: <OO.adrequest.AdRequester.ContentForm>  Content form is used to determine the ad insertion policy.
-id: <string>  Ooyala Pulse content id. Id is used to identify the content to third parties.
-contentPartner: <string>  Ooyala Pulse content partner. Content partners can be used by
+* `contentForm` : \<OO.adrequest.AdRequester.ContentForm>  Content form is used to determine the ad insertion policy.
+* `id` : \<string>  Ooyala Pulse content id. Id is used to identify the content to third parties.
+* `contentPartner`: \<string>  Ooyala Pulse content partner. Content partners can be used by
     Ooyala Pulse to target ads. The content partner can be represented by either its unique id or one of its
     aliases set in Ooyala Pulse.
-duration: <number>  This value cannot be negative.
-flags: <string[]>  Ooyala Pulse flags. Since flags override Ooyala Pulse's ad insertion policy, they
+* `duration`: \<number>  This value cannot be negative.
+* `flags` : \<string[]>  Ooyala Pulse flags. Since flags override Ooyala Pulse's ad insertion policy, they
     should be used with caution. For more information talk to your contact at Ooyala. Supported flags:
     nocom, noprerolls, nomidrolls, nopostrolls, nooverlays, noskins.
-tags: <string[]>   Ooyala Pulse content tags, used to target specific ads.
-customParameters: <object>  The Custom parameters to add to the
+* `tags` : \<string[]>   Ooyala Pulse content tags, used to target specific ads.
+* `customParameters`: \<object>  The Custom parameters to add to the
     session request. Parameters with names containing invalid characters are omitted.
     These custom parameters are added to the adserver request URL in the style
     of "cp.[parameter_name]=[parameter_value]".
-height: <number>  Height in pixels of the video area where ads should be shown.
-maxBitRate: <number>  The maximum bitrate of the media files in the ad response.
-linearPlaybackPositions: <number[]> An Array of numbers which define at what points in time linear ads should be shown.
-nonlinearPlaybackPositions: <number[]>  An Array of numbers which define at what points in time non-linear ads should be shown.
-insertionPointFilter: <OO.adrequest.AdRequester.InsertionPointType>  If not set, the request is for every kind of insertion point. If set, only the types provided are requested.
-width: <number>  Width in pixels of the video area where ads should be shown.
-referrerUrl: <string>  Overrides the HTTP header's referrer property.
-linearSlotSize: <number>  Overrides the number of linear ads per slot.
+* `height` : \<number>  Height in pixels of the video area where ads should be shown.
+* `maxBitRate` : \<number>  The maximum bitrate of the media files in the ad response.
+* `linearPlaybackPositions` : \<number[]> An Array of numbers which define at what points in time linear ads should be shown.
+* `nonlinearPlaybackPositions`: \<number[]>  An Array of numbers which define at what points in time non-linear ads should be shown.
+* `insertionPointFilter` : \<OO.adrequest.AdRequester.InsertionPointType>  If not set, the request is for every kind of insertion point. If set, only the types provided are requested.
+* `width` : \<number>  Width in pixels of the video area where ads should be shown.
+* `referrerUrl` : \<string>  Overrides the HTTP header's referrer property.
+* `linearSlotSize` : \<number>  Overrides the number of linear ads per slot.
     Using this affects the predictability of the Ooyala Pulse forecast functionality. Use with caution.
-```
+
 
 
 The sessionSettings object is a combination of contentMetadata and requestSettings, used by the Pulse SDK. You can see their description [here](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.html)
