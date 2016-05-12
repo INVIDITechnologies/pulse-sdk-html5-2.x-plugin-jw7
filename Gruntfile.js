@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     var date = grunt.template.today('yyyy-mm-dd');
     var sourceBanner = '/* \n'                                                                             +
-        '* !<%= pkg.name %> v<%= pkg.version %> built the: '+ date +'  | Ooyala Pulse ad manager for Ooyala Player V4\n'              +
+        '* !<%= pkg.name %> v<%= pkg.version %> built the: '+ date +'  | Ooyala Pulse HTML5 plugin for JW7\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> by Ooyala, www.ooyala.com \n'  +
         '* email: info@ooyala.com \n'                                                       +
         '*/ \n';
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         copy: {
             bridge: {
                 src: 'src/*.js',
-                dest: 'dist/pulse-<%= pkg.version %>.js'
+                dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.js'
             }
         },
         //Minify
