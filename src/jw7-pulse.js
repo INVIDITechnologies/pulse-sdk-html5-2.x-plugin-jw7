@@ -10,27 +10,29 @@
      * @type {Object}
      * @memberof OO.Pulse.JW7Plugin
      * @property {string} category <p>Content category is used by Ooyala Pulse to target ads and determine
-     * the ad insertion policy. The content category can be represented by either its unique id or one
+     * the ad insertion policy. The content category is represented by either its unique id or one
      * of its aliases set in Ooyala Pulse.</p>
      * @property {OO.adrequest.AdRequester.ContentForm} contentForm Content form is used to determine the ad insertion policy.
      * @property {string} id Ooyala Pulse content id. Id is used to identify the content to 3rd parties.
      * @property {string} contentPartner <p>Ooyala Pulse content partner. Content partners can be used by
-     * Ooyala Pulse to target ads. The content partner can be represented by either its unique id or one of its
+     * Ooyala Pulse to target ads. The content partner is represented by either its unique id or one of its
      * aliases set in Ooyala Pulse.</p>
-     * @property {number} duration This value cannot be negative.
-     * @property {string[]} flags Ooyala Pulse flags. Since flags override Ooyala Pulse's ad insertion policy, they
+     * @property {number} duration The duration of the content selected by the viewer. This value cannot be negative.
+     * @property {string[]} flags Ooyala Pulse flags. Because flags override Ooyala Pulse's ad insertion policy, they
      * should be used with caution. For more information talk to your contact at Ooyala. Supported flags:
      * nocom, noprerolls, nomidrolls, nopostrolls, nooverlays, noskins.
      * @property {string[]} tags  Ooyala Pulse content tags, used to target specific ads.
-     * @property {object} customParameters The Custom parameters to add to the
+     * @property {object} customParameters The custom parameters to add to the
      * session request. Parameters with names containing invalid characters are omitted.
-     * These custom parameters are added to the adserver request URL in the style
+     * These custom parameters are added to the ad server request URL in the style
      * of "cp.[parameter_name]=[parameter_value]".
      * @property {number} height Height in pixels of the video area where ads should be shown.
      * @property {number} maxBitRate The maximum bitrate of the media files in the ad response.
-     * @property {number[]} linearPlaybackPositions An Array of numbers which define at what points in time linear ads should be shown.
-     * @property {number[]} nonlinearPlaybackPositions An Array of numbers which define at what points in time non-linear ads should be shown.
-     * @property {OO.adrequest.AdRequester.InsertionPointType} insertionPointFilter If not set, the request is for every kind of insertion point. If set, only the types provided are requested.
+     * @property {number[]} linearPlaybackPositions An array of numbers which define at what points in time linear ads should be shown.
+     * @property {number[]} nonlinearPlaybackPositions An array of numbers which define at what points in time non-linear ads should be shown.
+     * @property {OO.adrequest.AdRequester.InsertionPointType} insertionPointFilter If not set,
+     * the request is for every kind of insertion point. If set, only the types provided are requested.
+     * See [link](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor) for possible values.
      * @property {number} width Width in pixels of the video area where ads should be shown.
      * @property {string} referrerUrl Overrides the HTTP header's referrer property.
      * @property {number} linearSlotSize Overrides the number of linear ads per slot.
@@ -41,9 +43,9 @@
      * Ooyala Pulse plugin for JW7
      * @param jwPlayer the JW7 player instance
      * @param pulseHostSettings the Pulse host settings : host URL, persistent ID and device container
-     * @param onAdClickedCallback <p>Function called when an ad is clicked.
-     * If null the Plugin will automatically open the clickthrough URL and track the clickThrough event.
-     * The method will be given the clickthrough URL as parameter.</p>
+     * @param onAdClickedCallback <p>called when an ad is clicked. If null the Plugin automatically opens
+     * the clickthrough URL and tracks the clickThrough event. The  clickthrough URL is passed as parameter
+     * in the method (see the [main README](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7) file for an example)</p>
      * @constructor
      */
     OO.Pulse.JW7Plugin = function(jwPlayer, pulseHostSettings, onAdClickedCallback) {
@@ -269,15 +271,15 @@
 
         /**
          * Init the Pulse session
-         * @param contentMetadata content Metadata
-         * @param requestSettings request Settings
+         * @param contentMetadata content metadata
+         * @param requestSettings request settings
          */
         function initSession(contentMetadata, requestSettings) {
             session = OO.Pulse.createSession(contentMetadata, requestSettings);
         }
 
         /**
-         * Default clickThrough handler
+         * Default clickthrough handler
          * @param url
          */
         function openAndTrackClickThrough(url) {
@@ -465,7 +467,9 @@
         }
 
         /**
-         * Add an event listener to the Pulse ad player
+         * Add an event listener to the Pulse ad player to access event data or to add
+         * your own logic to the event handling. All ad player events are listed
+         * [here](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.AdPlayer.Events.html).
          * @param event event to listen to
          * @param callback callback function
          */
@@ -483,7 +487,9 @@
         };
 
         /**
-         * Destroy the Plugin and the ad player
+         * Destroy the plugin and the ad player. Call this method in case the page is also
+         * used to display other content where you no longer need the JW7 player and the
+         * player is removed from the page.
          */
         this.destroy = function(){
             if(inLinearAdMode){
@@ -495,7 +501,7 @@
         };
 
         /**
-         * Initialize a new session. This is typically done in the "playlistItem" event listener.
+         * Initialize a new session. This is typically done in the `playlistItem` event listener of the JW player.
          * @param {OO.Pulse.JW7Plugin.SessionSettings} sessionSettings
          */
         this.initSession = function(sessionSettings){
