@@ -2,7 +2,7 @@
 
 
 # Introduction
-The JW7 Pulse plugin makes it easy to create an integration between Ooyala Pulse for ad serving and your JW7 player. The plugin is built on top of the Ooyala Pulse HTML5 ad player, part of [Ooyala's HTML5 Pulse SDK](http://pulse-sdks.ooyala.com/pulse-html5/latest/).
+The JW7 Pulse plugin makes it easy to create an integration between Ooyala Pulse for ad serving and your JW7 player. The plugin is built on top of the Ooyala Pulse HTML5 ad player, which is part of [Ooyala's HTML5 Pulse SDK](http://pulse-sdks.ooyala.com/pulse-html5/latest/).
 
 
 ## Build
@@ -13,7 +13,7 @@ The JW7 Pulse plugin makes it easy to create an integration between Ooyala Pulse
 
 >:warning: To integrate, you must have a JW Player version 7.x up and running on your site, as well as an Ooyala Pulse account and a unique ID (pulseHost).
 
-1. Load the HTML5 Pulse SDK and the Pulse JW7 plugin, in this order, on the page with your JW player.
+1. Load the HTML5 Pulse SDK on the page with your JW player.
 
  ```
  <script type="text/javascript" src="http://service.videoplaza.tv/proxy/pulse-sdk-html5/2.1/latest.min.js"></script>
@@ -29,7 +29,13 @@ The JW7 Pulse plugin makes it easy to create an integration between Ooyala Pulse
   ```
   <script type="text/javascript" src="http://your_hosting_location/pulse-jw7-x.x.x.min.js"></script>
   ```
-<!--1. Optionally, load the **skin.js** on the page with your JW player, to show a default skin for the ad player containing control buttons and to have access to alter this skin at a later stage.``` <script type="text/javascript" src="source_of_the_skin.js"></script> ```-->
+
+1. Optionally, load the skin.js and the associated CSS file on the page with your JW player, to show a default skin containing control buttons for the ad player.
+  ```
+  <script type="text/javascript" src="http://your_hosting_location/js/skin.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://your_hosting_location/css/skin.css" />
+  ```
+  The skin for the ad player is located at [HTML5 Ad Player Skins](https://github.com/ooyala/pulse-sdk-html5-2.x-skins), and all resources must be hosted on your site to use the skin.
 
 1. Create a new instance of the plugin, passing the JW player instance and your Pulse global settings as parameters.
 

@@ -452,7 +452,7 @@
             var requestSettings = {
                 height: sessionSettings.height,
                 width: sessionSettings.width,
-                maxBitRate: sessionSettings.maxBitrate,
+                maxBitRate: sessionSettings.maxBitRate,
                 linearPlaybackPositions: sessionSettings.linearPlaybackPositions,
                 nonlinearPlaybackPositions: sessionSettings.nonlinearPlaybackPositions,
                 insertionPointFilter: sessionSettings.insertionPointFilter,
