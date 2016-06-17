@@ -28,6 +28,7 @@
      * of "cp.[parameter_name]=[parameter_value]".
      * @property {number} height Height in pixels of the video area where ads should be shown.
      * @property {number} maxBitRate The maximum bitrate of the media files in the ad response.
+     * @property {number} maxLinearBreakDuration The maximum duration in seconds of linear ad breaks.
      * @property {number[]} linearPlaybackPositions An array of numbers which define at what points in time linear ads should be shown.
      * @property {number[]} nonlinearPlaybackPositions An array of numbers which define at what points in time non-linear ads should be shown.
      * @property {OO.adrequest.AdRequester.InsertionPointType} insertionPointFilter If not set,
@@ -457,7 +458,8 @@
                 nonlinearPlaybackPositions: sessionSettings.nonlinearPlaybackPositions,
                 insertionPointFilter: sessionSettings.insertionPointFilter,
                 referrerUrl: sessionSettings.referrerUrl,
-                linearSlotSize: sessionSettings.linearSlotSize
+                linearSlotSize: sessionSettings.linearSlotSize,
+                maxLinearBreakDuration: sessionSettings.maxLinearBreakDuration
             };
 
             //Remove the empty fields for the SDK

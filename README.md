@@ -93,6 +93,7 @@ The sessionSettings object in the JW7 plugin is a combination of contentMetadata
     of "cp.[parameter_name]=[parameter_value]".
 * `height` : &lt;number>  Height in pixels of the video area where ads should be shown.
 * `maxBitRate` : &lt;number>  The maximum bitrate of the media files in the ad response.
+* `maxLinearBreakDuration`: &lt;number>  The maximum duration in seconds of linear ad breaks.
 * `linearPlaybackPositions` : &lt;number[]> An array of numbers which defines at what points in time linear ads should be shown.
 * `nonlinearPlaybackPositions`: &lt;number[]>  An array of numbers which defines at what points in time non-linear ads should be shown.
 * `insertionPointFilter` : &lt;[OO.adrequest.AdRequester.InsertionPointType](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor)>  If not set, the request is for every kind of insertion point. If set, only the types provided are requested. See [link](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor) for possible values.
@@ -102,3 +103,6 @@ The sessionSettings object in the JW7 plugin is a combination of contentMetadata
 
 # API Docs
 The full API docs are available in the [wiki](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7/wiki/Pulse-JW7-plugin-API-documentation).
+
+# Disclaimer
+_Provision of the plugin is limited to delivery and integration of the plugin, and does not include any approvals, licenses, consents, permissions (collectively, “Third Party Rights”), and/or related fees (“Third Party Fees”) that may be necessary for use of and integration with JW Player. Company is responsible for obtaining and maintaining Third Party Rights and paying Third Party Fees, if any, for use of and integration with JW Player.__
