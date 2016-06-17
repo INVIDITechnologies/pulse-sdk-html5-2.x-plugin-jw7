@@ -105,4 +105,4 @@ The sessionSettings object in the JW7 plugin is a combination of contentMetadata
 The full API docs are available in the [wiki](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7/wiki/Pulse-JW7-plugin-API-documentation).
 
 # Disclaimer
-_Provision of the plugin is limited to delivery and integration of the plugin, and does not include any approvals, licenses, consents, permissions (collectively, “Third Party Rights”), and/or related fees (“Third Party Fees”) that may be necessary for use of and integration with JW Player. Company is responsible for obtaining and maintaining Third Party Rights and paying Third Party Fees, if any, for use of and integration with JW Player.__
+_Provision of the plugin is limited to delivery and integration of the plugin, and does not include any approvals, licenses, consents, permissions (collectively, “Third Party Rights”), and/or related fees (“Third Party Fees”) that may be necessary for use of and integration with JW Player. Company is responsible for obtaining and maintaining Third Party Rights and paying Third Party Fees, if any, for use of and integration with JW Player._
