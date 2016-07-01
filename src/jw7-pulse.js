@@ -74,11 +74,14 @@
         var currentPlaylistItem = null;
         var jwPluginDiv = null;
         var adState = "prerolls";
+        var pauseAdTimeout = null;
 
         //Play event handler
         var play = function () {
             if (inLinearAdMode && !isIOS) {
                 pauseJW.call(this);
+            } else {
+                this.adPlayer.contentStarted();
             }
         }.bind(this);
 
@@ -147,9 +150,29 @@
             }
         }.bind(this);
 
+
         //volume event handler
         var volume = function(event){
             this.adPlayer.setVolume(event.volume/100);
+        }.bind(this);
+
+        // Pause handler
+        var onPause = function(event) {
+            if (!inLinearAdMode) {
+                pauseAdTimeout = setTimeout((function() {
+                    this.adPlayer.contentPaused();
+                    pauseAdTimeout = null;
+                }).bind(this), 100);
+            }
+        }.bind(this);
+
+        // Seek handler
+        var onSeek = function(event) {
+            if (!inLinearAdMode) {
+                if(pauseAdTimeout) {
+                    clearTimeout(pauseAdTimeout);
+                }
+            }
         }.bind(this);
 
         //Ad player listener
@@ -206,6 +229,9 @@
             this.player.on("mute", mute);
             // Align the ad player volume with the main content
             this.player.on("volume", volume);
+            // On pause, try to show pause ads
+            this.player.on("pause", onPause);
+            this.player.on("seek", onSeek);
         }
 
         //Remove the event listeners on the content player (used in destroy).
@@ -228,6 +254,9 @@
             this.player.off("mute", mute);
             // Align the ad player volume with the main cofftent
             this.player.off("volume", volume);
+            // Pause handler
+            this.player.off("pause", onPause);
+            this.player.off("seek", onSeek);
         }
 
         /**
