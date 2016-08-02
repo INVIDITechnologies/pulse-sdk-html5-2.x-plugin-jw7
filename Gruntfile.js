@@ -11,11 +11,17 @@ module.exports = function(grunt) {
     [
         "grunt-contrib-uglify",
         "grunt-contrib-copy",
+        "grunt-contrib-clean"
     ].forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        clean: {
+          build: {
+              src: ['dist']
+          }
+        },
         //Copy the JS to dist
         copy: {
             bridge: {
@@ -39,5 +45,5 @@ module.exports = function(grunt) {
         },
     });
 
-    grunt.registerTask('default', ['copy', 'uglify',]);
+    grunt.registerTask('default', ['clean', 'copy', 'uglify']);
 };
