@@ -33,7 +33,7 @@ Initialize a new session. This is typically done in the `playlistItem` event lis
 Add an event listener to the Pulse ad player to access event data or to add your own logic to the event handling. All ad player events are listed [here](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.AdPlayer.Events.html).
 
  * **Parameters:**
-   * `event` — to listen to
+   * `event` — event to listen to
    * `callback` — function
 
 For example:
@@ -49,12 +49,20 @@ Remove an event listener.
 
  * **Parameters:**
    * `event` — player event
-   * `callback` — to remove
+   * `callback` — callback to remove
 
 ### `destroy()`
 
 Destroy the plugin and the ad player. Call this method in case the page is also used to display other content where you no longer need the JW7 player and the player is removed from the page.
 
+### `extendSession(sessionSettings, onCompleteCallback)`
+
+Extend the existing ad session. This enables ad-hoc ad calls (such as dynamically inserting midrolls, for example).
+
+* **Parameters:**
+  * `sessionSettings` — `OO.Pulse.JW7Plugin.SessionSettings` — The session settings list is available in the [main README](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7) file.
+  * `onCompleteCallback`- `function` - Callback called when the session has been extended.
+   
 ### `stopSession()`
 
 Stop the ad session. No more ads will be displayed in the video.

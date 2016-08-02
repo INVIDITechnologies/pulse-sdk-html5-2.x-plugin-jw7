@@ -539,12 +539,31 @@
             var contentMetadata;
             var requestSettings;
 
+            if (sessionSettings.debug) {
+                OO.Pulse.debug = sessionSettings.debug;
+            }
+
             //If there was an existing session, stop it
             this.stopSession();
 
             initSession.call(this,getContentMetadataFromSessionSettings(sessionSettings),
                 getRequestSettingsFromSessionSettings(sessionSettings));
         };
+
+        /**
+         * Extend the existing ad session. This enables ad-hoc ad calls.
+         * @param {OO.Pulse.JW7Plugin.SessionSettings} sessionSettings
+         * @param onCompleteCallback function called when the session has been extended
+         */
+        this.extendSession = function (sessionSettings, onCompleteCallback) {
+            if (session) {
+                session.extendSession(
+                    getContentMetadataFromSessionSettings(sessionSettings),
+                    getRequestSettingsFromSessionSettings(sessionSettings), onCompleteCallback);
+            } else {
+                OO.Pulse.Utils.log("Can't extend session. No session object available.")
+            }
+        }
 
         /**
          * Stop the ad session. No more ads will be displayed in the video.

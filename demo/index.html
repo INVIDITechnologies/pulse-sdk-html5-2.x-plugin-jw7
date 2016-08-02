@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JW Pulse Demo</title>
+    <script src="https://content.jwplatform.com/libraries/AU7cMO4p.js"></script> <!-- Player script here -->
+
+    <!--Pulse and bridges-->
+    <script src="//pulse-demo.videoplaza.tv/proxy/pulse-sdk-html5/2.1/latest.min.js"></script>
+    <script src="../src/jw7-pulse.js"></script>
+
+    <!--Skin!-->
+    <script src="//pulse-demo.videoplaza.tv/proxy/pulse-sdk-html5-skin/base.min.js"></script>
+</head>
+<body>
+<div id="container">
+
+</div>
+
+<script>
+    jwplayer("container").setup({
+        file: "//content.jwplatform.com/videos/QFAzrVt9-ZILKNsM1.mp4",
+        width: "600px",
+        aspectratio:"16:9"
+    });
+
+    window.jwPlayer = jwplayer("container");
+
+
+    window.jwPlayer.on('ready', function () {
+        var config = {
+            linearPlaybackPositions: [10,20],
+            tags: ['standard-linears'],
+            category: 'skip-always',
+            debug: true, // Enable debug output in the console
+        };
+
+        var jwPulse = new OO.Pulse.JW7Plugin(jwPlayer, {pulseHost: 'http://pulse-demo.videoplaza.tv'});
+        jwPulse.initSession(config);
+
+        /** Play ads on every playlist item */
+        jwPlayer.on("playlistItem", function () {
+            jwPulse.initSession(config);
+        });
+
+    });
+</script>
+</body>
+</html>
+
+
