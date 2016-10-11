@@ -414,6 +414,7 @@
             var overlays = playerContainer.getElementsByClassName("jw-overlays")[0];
             var container = document.createElement("div");
             container.id = "pulse_" + Math.random();
+            container.style.pointerEvents = "all";
             overlays.appendChild(container);
             return container;
         }
