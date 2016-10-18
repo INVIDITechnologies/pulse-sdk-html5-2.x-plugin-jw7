@@ -296,7 +296,7 @@
 
                 if(adClickedCallback){
                     adClickedCallback(eventData);
-                } else {
+                } else if (eventData.url) {
                     //Default clickthrough behaviour
                     this.adPlayer.pause();
                     openAndTrackClickThrough.call(this, eventData.url);
