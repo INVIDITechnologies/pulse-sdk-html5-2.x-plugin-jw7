@@ -30,10 +30,9 @@ The JW7 Pulse plugin makes it easy to create an integration between Ooyala Pulse
   <script type="text/javascript" src="http://your_hosting_location/pulse-jw7-x.x.x.min.js"></script>
   ```
 
-1. Optionally, load the skin.js and the associated CSS file on the page with your JW player, to show a default skin containing control buttons for the ad player.
+1. Optionally, load the skin.js file on the page with your JW player, to show a default skin containing control buttons for the ad player.
   ```
   <script type="text/javascript" src="http://your_hosting_location/js/skin.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://your_hosting_location/css/skin.css" />
   ```
   The skin for the ad player is located at [HTML5 Ad Player Skins](https://github.com/ooyala/pulse-sdk-html5-2.x-skins), and all resources must be hosted on your site to use the skin.
 
