@@ -91,6 +91,8 @@
         var beforePlay = function () {
 
             if (beforeContentStart) {
+                //Pause the video first
+                enterLinearAdMode.call(this);
                 beforeContentStart = false;
                 //Load the shared element video now to allow "autoplay" on mobile
                 if(sharedElement){
@@ -327,6 +329,10 @@
          * Enter linear ad mode: pause the content, detach the media element on iOS
          */
         function enterLinearAdMode() {
+
+            if(inLinearAdMode){
+                return;
+            }
 
             inLinearAdMode = true;
             playbackStateSave.controls = this.player.getControls();
