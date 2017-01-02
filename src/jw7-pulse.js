@@ -141,6 +141,7 @@
         //playlistItem event handler
         var playlistItem = function (event) {
             currentPlaylistItem = event.item.file;
+            playbackStateSave.src = currentPlaylistItem;
             contentFinished = false;
             adState = "prerolls";
             beforeContentStart = true;
@@ -363,7 +364,7 @@
 
                 if (isIOS) {
                     sharedElement.style.display = "";
-                    sharedElement.src = currentPlaylistItem;
+                    sharedElement.src = playbackStateSave.src;
                     if(adState === "midrolls") {
                         sharedElement.currentTime = playbackStateSave.currentTime;
                     }
