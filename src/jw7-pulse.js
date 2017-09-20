@@ -284,9 +284,11 @@
             isIOS = iOS();
             sharedElement = getJWVideoElement(this.player);
 
-            if (isIOS) {
+            if (isIOS || isAutoplaySupported() === false) {
+                OO.Pulse.Utils.log("JW7 plugin: Autoplay is not supported.");
                 this.adPlayer = createAdPlayer(adPlayerContainer, sharedElement);
             } else {
+                OO.Pulse.Utils.log("JW7 plugin: Autoplay is supported.");
                 this.adPlayer = createAdPlayer(adPlayerContainer, null);
             }
 
@@ -426,6 +428,13 @@
             return container;
         }
 
+        function isAutoplaySupported() {
+            if(typeof OO.Pulse.canAutoplay === 'function') {
+                return OO.Pulse.canAutoplay();
+            }
+
+            return true;
+        }
 
         /**
          * Detect iOS
