@@ -511,7 +511,10 @@
                 insertionPointFilter: sessionSettings.insertionPointFilter,
                 referrerUrl: sessionSettings.referrerUrl,
                 linearSlotSize: sessionSettings.linearSlotSize,
-                maxLinearBreakDuration: sessionSettings.maxLinearBreakDuration
+                maxLinearBreakDuration: sessionSettings.maxLinearBreakDuration,
+                enforceCacheBusting: sessionSettings.enforceCacheBusting,
+                useVASTSkipOffset: sessionSettings.useVASTSkipOffset,
+                seekMode: sessionSettings.seekMode
             };
 
             //Remove the empty fields for the SDK
@@ -558,7 +561,7 @@
          * Initialize a new session. This is typically done in the `playlistItem` event listener of the JW player.
          * @param {OO.Pulse.JW7Plugin.SessionSettings} sessionSettings
          */
-        this.initSession = function(sessionSettings){
+        this.initSession = function(sessionSettings) {
 
             if (sessionSettings.debug) {
                 OO.Pulse.debug = sessionSettings.debug;
