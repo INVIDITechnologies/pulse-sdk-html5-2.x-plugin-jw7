@@ -99,6 +99,9 @@ The sessionSettings object in the JW7 plugin is a combination of contentMetadata
 * `width` : &lt;number>  Width in pixels of the video area where ads should be shown.
 * `referrerUrl` : &lt;string>  Overrides the HTTP header's referrer property.
 * `linearSlotSize` : &lt;number>  Overrides the number of linear ads per slot. Using this affects the predictability of the Ooyala Pulse forecast functionality. Use with caution.
+* `enforceCacheBusting` : &lt;Boolean> If set to false, a randomized cache busting parameter is not added to VAST 2.0 tracking URLs which are missing the [CACHEBUSTING] macro. If not set, or set to true (default), the parameter is added.
+* `useVASTSkipOffset` : &lt;Boolean> If set to true, skip offset information provided in third party VAST tickets determines the skip behaviour of third party ads. If not set, or set to false (default), the insertion policy configured in Pulse determines the skip behaviour instead.
+* `seekMode` : &lt;[OO.Pulse.SeekMode](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.html#.SeekMode)> Determines how the ad session behaves when the viewer seeks past one or more ad breaks. If not provided, it defaults to `IGNORE.
 
 # API Docs
 The full API docs are available in the [wiki](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7/wiki/Pulse-JW7-plugin-API-documentation).
