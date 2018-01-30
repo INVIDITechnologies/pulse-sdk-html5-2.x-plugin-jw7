@@ -514,7 +514,8 @@
                 maxLinearBreakDuration: sessionSettings.maxLinearBreakDuration,
                 enforceCacheBusting: sessionSettings.enforceCacheBusting,
                 useVASTSkipOffset: sessionSettings.useVASTSkipOffset,
-                seekMode: sessionSettings.seekMode
+                seekMode: sessionSettings.seekMode,
+                preferredMediaFormat: sessionSettings.preferredMediaFormat
             };
 
             //Remove the empty fields for the SDK
