@@ -77,13 +77,15 @@
         var pauseAdTimeout = null;
         var contentMetadata = null;
         var requestSettings = null;
+        var isContentStartedReported = false;
 
         //Play event handler
         var play = function () {
             if (inLinearAdMode && !isIOS) {
                 pauseJW.call(this);
-            } else {
-                this.adPlayer.contentStarted();
+            } else if (!isContentStartedReported) {
+                    this.adPlayer.contentStarted();
+                    isContentStartedReported = true;
             }
         }.bind(this);
 
@@ -170,6 +172,7 @@
             if (!inLinearAdMode) {
                 pauseAdTimeout = setTimeout((function() {
                     this.adPlayer.contentPaused();
+                    isContentStartedReported = false;
                     pauseAdTimeout = null;
                 }).bind(this), 100);
             }
@@ -339,10 +342,11 @@
 
             inLinearAdMode = true;
             playbackStateSave.controls = this.player.getControls();
+            
             pauseJW.call(this);
             this.player.detachMedia();
             this.player.setControls(false);
-            if (isIOS) {
+            if (isIOS || isAutoplaySupported() === false) {
                 jwPlayer.getContainer().className = jwPlayer.getContainer().className.replace( /(?:^|\s)jw-state-idle(?!\S)/ , '' );
                 jwPluginDiv = jwPlayer.getContainer().getElementsByClassName("jw-plugin")[0]
                 playbackStateSave.src = sharedElement.src;
@@ -364,7 +368,7 @@
             if (inLinearAdMode) {
                 this.player.setControls(playbackStateSave.controls);
 
-                if (isIOS) {
+            if (isIOS || isAutoplaySupported() === false) {
                     sharedElement.style.display = "";
                     sharedElement.src = playbackStateSave.src;
                     if(adState === "midrolls") {
@@ -378,8 +382,9 @@
                     this.player.attachMedia();
                 }
 
-                if (!contentFinished) {
+                if (!contentFinished && !isContentStartedReported) {
                     this.adPlayer.contentStarted();
+                    isContentStartedReported = true;
                     this.player.play(true);
                 } else {
                     if (isIOS) {
