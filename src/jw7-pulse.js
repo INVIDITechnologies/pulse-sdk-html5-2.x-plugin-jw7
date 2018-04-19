@@ -84,8 +84,7 @@
             if (inLinearAdMode && !isIOS) {
                 pauseJW.call(this);
             } else if (!isContentStartedReported) {
-                    this.adPlayer.contentStarted();
-                    isContentStartedReported = true;
+                    reportContentStarted.call(this);  
             }
         }.bind(this);
 
@@ -339,11 +338,11 @@
             if(inLinearAdMode){
                 return;
             }
+            pauseJW.call(this);
 
             inLinearAdMode = true;
             playbackStateSave.controls = this.player.getControls();
             
-            pauseJW.call(this);
             this.player.detachMedia();
             this.player.setControls(false);
             if (isIOS || isAutoplaySupported() === false) {
@@ -383,9 +382,8 @@
                 }
 
                 if (!contentFinished && !isContentStartedReported) {
-                    this.adPlayer.contentStarted();
-                    isContentStartedReported = true;
                     this.player.play(true);
+                    reportContentStarted.call(this);
                 } else {
                     if (isIOS) {
                         jwMediaElement.style.pointerEvents = "";
@@ -440,6 +438,35 @@
 
             return true;
         }
+
+        function reportContentStarted() {
+            if (this.adPlayer != null && !isContentStartedReported) {
+                this.adPlayer.contentStarted();
+                isContentStartedReported = true;
+            }
+        }
+
+        function resetState() {
+            adPlayerContainer = getAdPlayerContainer(jwPlayer);
+            session = null;
+            adClickedCallback = onAdClickedCallback;
+            inLinearAdMode = false;
+            playbackStateSave = {};
+            contentFinished = false;
+            beforeContentStart = true;
+            jwMediaElement = jwPlayer.getContainer().getElementsByClassName("jw-media")[0];
+            isIOS = false;
+            adVolume = 1;//100%
+            currentPlaylistItem = null;
+            jwPluginDiv = null;
+            adState = "prerolls";
+            pauseAdTimeout = null;
+            contentMetadata = null;
+            requestSettings = null;
+            isContentStartedReported = false;
+        }
+
+
 
         /**
          * Detect iOS
@@ -599,6 +626,7 @@
          * Stop the ad session. No more ads will be displayed in the video.
          */
         this.stopSession = function () {
+            resetState();
             if(session){
                 try{
                     this.adPlayer.stopSession();
