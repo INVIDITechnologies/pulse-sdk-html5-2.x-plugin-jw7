@@ -9,19 +9,19 @@
      * @typedef SessionSettings
      * @type {Object}
      * @memberof OO.Pulse.JW7Plugin
-     * @property {string} category <p>Content category is used by Ooyala Pulse to target ads and determine
+     * @property {string} category <p>Content category is used by Pulse to target ads and determine
      * the ad insertion policy. The content category is represented by either its unique id or one
-     * of its aliases set in Ooyala Pulse.</p>
+     * of its aliases set in Pulse.</p>
      * @property {OO.adrequest.AdRequester.ContentForm} contentForm Content form is used to determine the ad insertion policy.
-     * @property {string} id Ooyala Pulse content id. Id is used to identify the content to 3rd parties.
-     * @property {string} contentPartner <p>Ooyala Pulse content partner. Content partners can be used by
-     * Ooyala Pulse to target ads. The content partner is represented by either its unique id or one of its
-     * aliases set in Ooyala Pulse.</p>
+     * @property {string} id Pulse content id. Id is used to identify the content to 3rd parties.
+     * @property {string} contentPartner <p>Pulse content partner. Content partners can be used by
+     * Pulse to target ads. The content partner is represented by either its unique id or one of its
+     * aliases set in Pulse.</p>
      * @property {number} duration The duration of the content selected by the viewer. This value cannot be negative.
-     * @property {string[]} flags Ooyala Pulse flags. Because flags override Ooyala Pulse's ad insertion policy, they
-     * should be used with caution. For more information talk to your contact at Ooyala. Supported flags:
+     * @property {string[]} flags Pulse flags. Since flags override Pulse's ad insertion policy, they
+     * should be used with caution. For more information talk to your contact at INVIDI. Supported flags:
      * nocom, noprerolls, nomidrolls, nopostrolls, nooverlays, noskins.
-     * @property {string[]} tags  Ooyala Pulse content tags, used to target specific ads.
+     * @property {string[]} tags  Pulse content tags, used to target specific ads.
      * @property {object} customParameters The custom parameters to add to the
      * session request. Parameters with names containing invalid characters are omitted.
      * These custom parameters are added to the ad server request URL in the style
@@ -33,20 +33,20 @@
      * @property {number[]} nonlinearPlaybackPositions An array of numbers which define at what points in time non-linear ads should be shown.
      * @property {OO.adrequest.AdRequester.InsertionPointType} insertionPointFilter If not set,
      * the request is for every kind of insertion point. If set, only the types provided are requested.
-     * See [link](http://pulse-sdks.ooyala.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor) for possible values.
+     * See [link](http://pulse-sdks.videoplaza.com/html5_2/latest/videoplaza.adrequest.AdRequester.html#toc5__anchor) for possible values.
      * @property {number} width Width in pixels of the video area where ads should be shown.
      * @property {string} referrerUrl Overrides the HTTP header's referrer property.
      * @property {number} linearSlotSize Overrides the number of linear ads per slot.
-     * <p><strong>NOTE!</strong> Using this affects the predictability of the Ooyala Pulse forecast functionality. Use with caution.</p>
+     * <p><strong>NOTE!</strong> Using this affects the predictability of the Pulse forecast functionality. Use with caution.</p>
      */
 
     /**
-     * Ooyala Pulse plugin for JW7
+     * Pulse plugin for JW7
      * @param jwPlayer the JW7 player instance
      * @param pulseHostSettings the Pulse host settings : host URL, persistent ID and device container
      * @param onAdClickedCallback <p>called when an ad is clicked. If null the Plugin automatically opens
      * the clickthrough URL and tracks the clickThrough event. The  clickthrough URL is passed as parameter
-     * in the method (see the [main README](https://github.com/ooyala/pulse-sdk-html5-2.x-plugin-jw7) file for an example)</p>
+     * in the method (see the [main README](https://github.com/INVIDITechnologies/pulse-sdk-html5-2.x-plugin-jw7) file for an example)</p>
      * @constructor
      */
     OO.Pulse.JW7Plugin = function(jwPlayer, pulseHostSettings, onAdClickedCallback) {
@@ -55,7 +55,7 @@
          */
         this.player = jwPlayer;
         /**
-         * The Ooyala Pulse ad player controller
+         * The Pulse ad player controller
          * @type {OO.Pulse.AdPlayerController}
          */
         this.adPlayer = null;
@@ -559,7 +559,7 @@
         /**
          * Add an event listener to the Pulse ad player to access event data or to add
          * your own logic to the event handling. All ad player events are listed
-         * [here](http://pulse-sdks.ooyala.com/pulse-html5/latest/OO.Pulse.AdPlayer.Events.html).
+         * [here](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.AdPlayer.Events.html).
          * @param event event to listen to
          * @param callback callback function
          */
