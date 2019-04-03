@@ -69,7 +69,7 @@ The [Pulse HTML5 ad player](http://pulse-sdks.videoplaza.com/pulse-html5/latest/
 myJW7Plugin.adPlayer.pause();
 ```
 
-## <a name="session-settings"></a>Session settings
+## Session settings
 
 The sessionSettings object in the JW7 plugin is a combination of contentMetadata and requestSettings, used by the Pulse SDK. You can see the description of these objects  [here](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html).
 
