@@ -2,9 +2,8 @@ module.exports = function(grunt) {
 
     var date = grunt.template.today('yyyy-mm-dd');
     var sourceBanner = '/* \n'                                                                             +
-        '* !<%= pkg.name %> v<%= pkg.version %> built the: '+ date +'  | INVIDI Pulse HTML5 plugin for JW7\n' +
+        '* !<%= pkg.name %> v<%= pkg.version %> built the: '+ date +'  | Pulse HTML5 plugin for JW7\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> by INVIDI, www.invidi.com \n'  +
-        '* email: support@invidi.com\n'                                                       +
         '*/ \n';
 
     // Load the plugin tasks we need

@@ -9,19 +9,19 @@
      * @typedef SessionSettings
      * @type {Object}
      * @memberof OO.Pulse.JW7Plugin
-     * @property {string} category <p>Content category is used by INVIDI Pulse to target ads and determine
+     * @property {string} category <p>Content category is used by Pulse to target ads and determine
      * the ad insertion policy. The content category is represented by either its unique id or one
-     * of its aliases set in INVIDI Pulse.</p>
+     * of its aliases set in Pulse.</p>
      * @property {OO.adrequest.AdRequester.ContentForm} contentForm Content form is used to determine the ad insertion policy.
-     * @property {string} id INVIDI Pulse content id. Id is used to identify the content to 3rd parties.
-     * @property {string} contentPartner <p>INVIDI Pulse content partner. Content partners can be used by
-     * INVIDI Pulse to target ads. The content partner is represented by either its unique id or one of its
-     * aliases set in INVIDI Pulse.</p>
+     * @property {string} id Pulse content id. Id is used to identify the content to 3rd parties.
+     * @property {string} contentPartner <p>Pulse content partner. Content partners can be used by
+     * Pulse to target ads. The content partner is represented by either its unique id or one of its
+     * aliases set in Pulse.</p>
      * @property {number} duration The duration of the content selected by the viewer. This value cannot be negative.
-     * @property {string[]} flags INVIDI Pulse flags. Because flags override INVIDI Pulse's ad insertion policy, they
+     * @property {string[]} flags Pulse flags. Since flags override Pulse's ad insertion policy, they
      * should be used with caution. For more information talk to your contact at INVIDI. Supported flags:
      * nocom, noprerolls, nomidrolls, nopostrolls, nooverlays, noskins.
-     * @property {string[]} tags  INVIDI Pulse content tags, used to target specific ads.
+     * @property {string[]} tags  Pulse content tags, used to target specific ads.
      * @property {object} customParameters The custom parameters to add to the
      * session request. Parameters with names containing invalid characters are omitted.
      * These custom parameters are added to the ad server request URL in the style
@@ -37,11 +37,11 @@
      * @property {number} width Width in pixels of the video area where ads should be shown.
      * @property {string} referrerUrl Overrides the HTTP header's referrer property.
      * @property {number} linearSlotSize Overrides the number of linear ads per slot.
-     * <p><strong>NOTE!</strong> Using this affects the predictability of the INVIDI Pulse forecast functionality. Use with caution.</p>
+     * <p><strong>NOTE!</strong> Using this affects the predictability of the Pulse forecast functionality. Use with caution.</p>
      */
 
     /**
-     * INVIDI Pulse plugin for JW7
+     * Pulse plugin for JW7
      * @param jwPlayer the JW7 player instance
      * @param pulseHostSettings the Pulse host settings : host URL, persistent ID and device container
      * @param onAdClickedCallback <p>called when an ad is clicked. If null the Plugin automatically opens
@@ -55,7 +55,7 @@
          */
         this.player = jwPlayer;
         /**
-         * The INVIDI Pulse ad player controller
+         * The Pulse ad player controller
          * @type {OO.Pulse.AdPlayerController}
          */
         this.adPlayer = null;

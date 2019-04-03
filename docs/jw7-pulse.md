@@ -1,7 +1,7 @@
 
 ## Class `OO.Pulse.JW7Plugin(jwPlayer, pulseHostSettings, onAdClickedCallback)`
 
-INVIDI Pulse plugin for JW7.
+Pulse plugin for JW7.
 
  * **Parameters:**
    * `jwPlayer` — JW7 player instance
@@ -17,7 +17,7 @@ The JW7 player instance.
 
 ### `adPlayer`
 
-The INVIDI Pulse ad player controller. To get the full ad player SDK, check out the [SDK documentation](http://pulse-sdks.videoplaza.com/pulse-html5/latest/index.html).
+The Pulse ad player controller. To get the full ad player SDK, check out the [SDK documentation](http://pulse-sdks.videoplaza.com/pulse-html5/latest/index.html).
 
 ## Methods
 
