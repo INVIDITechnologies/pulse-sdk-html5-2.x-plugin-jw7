@@ -73,36 +73,36 @@ myJW7Plugin.adPlayer.pause();
 
 The sessionSettings object in the JW7 plugin is a combination of contentMetadata and requestSettings, used by the Pulse SDK. You can see the description of these objects  [here](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html).
 
-* `category` : &lt;string\> Content category is used by Pulse to target ads and determine
+* `category` : <string\> Content category is used by Pulse to target ads and determine
     the ad insertion policy. The content category is represented by either its unique id or one
     of its aliases set in Pulse.
-* `contentForm` : &lt;[OO.Pulse.ContentForm](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.ContentForm)>  Content form is used to determine the ad insertion policy.
-* `id` : &lt;string>  Pulse content id. Id is used to identify the content to third parties.
-* `contentPartner`: &lt;string>  Pulse content partner. Content partners can be used by
+* `contentForm` : <[OO.Pulse.ContentForm](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.ContentForm)\>  Content form is used to determine the ad insertion policy.
+* `id` : <string\>  Pulse content id. Id is used to identify the content to third parties.
+* `contentPartner`: <string\>  Pulse content partner. Content partners can be used by
     Pulse to target ads. The content partner is represented by either its unique id or one of its
     aliases set in Pulse.
-* `duration`: &lt;number>  The duration of the content selected by the viewer. This value cannot be negative.
-* `flags` : &lt;string[]>  Pulse flags. Because flags override Pulse's ad insertion policy, they
+* `duration`: <number\>  The duration of the content selected by the viewer. This value cannot be negative.
+* `flags` : <string[]\>  Pulse flags. Because flags override Pulse's ad insertion policy, they
     should be used with caution. For more information talk to your contact at INVIDI. Supported flags:
     nocom, noprerolls, nomidrolls, nopostrolls, nooverlays, noskins.
-* `tags` : &lt;string[]>   Pulse content tags, used to target specific ads.
-* `customParameters`: &lt;object>  The custom parameters to add to the
+* `tags` : <string[]\>   Pulse content tags, used to target specific ads.
+* `customParameters`: <object\>  The custom parameters to add to the
     session request. Parameters with names containing invalid characters are omitted.
     These custom parameters are added to the ad server request URL in the style
     of "cp.[parameter_name]=[parameter_value]".
-* `height` : &lt;number>  Height in pixels of the video area where ads should be shown.
-* `maxBitRate` : &lt;number>  The maximum bitrate of the media files in the ad response.
-* `maxLinearBreakDuration`: &lt;number>  The maximum duration in seconds of linear ad breaks.
-* `linearPlaybackPositions` : &lt;number[]> An array of numbers which defines at what points in time linear ads should be shown.
-* `nonlinearPlaybackPositions`: &lt;number[]>  An array of numbers which defines at what points in time non-linear ads should be shown.
-* `insertionPointFilter` : &lt;[OO.Pulse.InsertionPointType](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.InsertionPointType__anchor)[]>  If not set, the response may include every kind of insertion point. If set, only the types provided are requested.
-* `width` : &lt;number>  Width in pixels of the video area where ads should be shown.
-* `referrerUrl` : &lt;string>  Overrides the HTTP header's referrer property.
-* `linearSlotSize` : &lt;number>  Overrides the number of linear ads per slot. Using this affects the predictability of the Pulse forecast functionality. Use with caution.
-* `enforceCacheBusting` : &lt;Boolean> If set to false, a randomized cache busting parameter is not added to VAST 2.0 tracking URLs which are missing the [CACHEBUSTING] macro. If not set, or set to true (default), the parameter is added.
-* `useVASTSkipOffset` : &lt;Boolean> If set to true, skip offset information provided in third party VAST tickets determines the skip behaviour of third party ads. If not set, or set to false (default), the insertion policy configured in Pulse determines the skip behaviour instead.
-* `seekMode` : &lt;[OO.Pulse.SeekMode](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.SeekMode)> Determines how the ad session behaves when the viewer seeks past one or more ad breaks. If not provided, it defaults to `IGNORE.
-* `preferredMediaFormat` : &lt;[OO.Pulse.PreferredMediaFormat](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.PreferredMediaFormat)> If set, the media file with the preferred media format is ranked at the top of the list of the ad's eligible media files.
+* `height` : <number\>  Height in pixels of the video area where ads should be shown.
+* `maxBitRate` : <number\>  The maximum bitrate of the media files in the ad response.
+* `maxLinearBreakDuration`: <number\>  The maximum duration in seconds of linear ad breaks.
+* `linearPlaybackPositions` : <number[]\> An array of numbers which defines at what points in time linear ads should be shown.
+* `nonlinearPlaybackPositions`: <number[]\>  An array of numbers which defines at what points in time non-linear ads should be shown.
+* `insertionPointFilter` : <[OO.Pulse.InsertionPointType](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.InsertionPointType__anchor)[]\>  If not set, the response may include every kind of insertion point. If set, only the types provided are requested.
+* `width` : <number\>  Width in pixels of the video area where ads should be shown.
+* `referrerUrl` : <string\>  Overrides the HTTP header's referrer property.
+* `linearSlotSize` : <number\>  Overrides the number of linear ads per slot. Using this affects the predictability of the Pulse forecast functionality. Use with caution.
+* `enforceCacheBusting` : <boolean\> If set to false, a randomized cache busting parameter is not added to VAST 2.0 tracking URLs which are missing the [CACHEBUSTING] macro. If not set, or set to true (default), the parameter is added.
+* `useVASTSkipOffset` : <boolean\> If set to true, skip offset information provided in third party VAST tickets determines the skip behaviour of third party ads. If not set, or set to false (default), the insertion policy configured in Pulse determines the skip behaviour instead.
+* `seekMode` : <[OO.Pulse.SeekMode](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.SeekMode)\> Determines how the ad session behaves when the viewer seeks past one or more ad breaks. If not provided, it defaults to `IGNORE.
+* `preferredMediaFormat` : <[OO.Pulse.PreferredMediaFormat](http://pulse-sdks.videoplaza.com/pulse-html5/latest/OO.Pulse.html#.PreferredMediaFormat)\> If set, the media file with the preferred media format is ranked at the top of the list of the ad's eligible media files.
 
 # Disclaimer
 _Provision of the plugin is limited to delivery and integration of the plugin, and does not include any approvals, licenses, consents, permissions (collectively, “Third Party Rights”), and/or related fees (“Third Party Fees”) that may be necessary for use of and integration with JW Player. Company is responsible for obtaining and maintaining Third Party Rights and paying Third Party Fees, if any, for use of and integration with JW Player._
