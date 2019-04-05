@@ -2,7 +2,7 @@
 
 
 # Introduction
-The JW7 Pulse plugin makes it easy to create an integration between the Pulse ad server and your JW7 player. The plugin is built on top of the Pulse HTML5 ad player, which is part of [INVIDI's HTML5 Pulse SDK](http://service.videoplaza.tv/proxy/pulse-sdk-html5/2.1/latest.min.js).
+The JW7 Pulse plugin makes it easy to create an integration between the Pulse ad server and your JW7 player. The plugin is built on top of the Pulse HTML5 ad player, which is part of INVIDI's HTML5 Pulse SDK.
 
 
 ## Build

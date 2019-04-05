@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     var date = grunt.template.today('yyyy-mm-dd');
     var sourceBanner = '/* \n'                                                                             +
-        '* !<%= pkg.name %> v<%= pkg.version %> built the: '+ date +'  | Pulse HTML5 plugin for JW7\n' +
+        '* !<%= pkg.name %> v<%= pkg.version %> built '+ date +'  | Pulse HTML5 plugin for JW7\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> by INVIDI, www.invidi.com \n'  +
         '*/ \n';
 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 options: {
                     banner: sourceBanner,
                     mangle: {
-                        except: ['error', 'format', 'request', 'model', 'parse', 'core', 'window', 'document', 'console']
+                        reserved: ['error', 'format', 'request', 'model', 'parse', 'core', 'window', 'document', 'console']
                     }
                 },
                 files: {
