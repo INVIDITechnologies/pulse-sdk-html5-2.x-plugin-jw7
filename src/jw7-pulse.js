@@ -510,17 +510,8 @@
          * @returns {{category: *, contentForm: (*|string), id: *, contentPartner: *, duration: *, flags: *, tags: *, customParameters: *}}
          */
         function getContentMetadataFromSessionSettings(sessionSettings){
-            var contentMetadata = {
-                category: sessionSettings.category,
-                contentForm: sessionSettings.contentForm,
-                id: sessionSettings.id,
-                contentPartner: sessionSettings.contentPartner,
-                duration: sessionSettings.duration,
-                flags: sessionSettings.flags,
-                tags: sessionSettings.tags,
-                customParameters: sessionSettings.customParameters
-
-            };
+            
+            var contentMetadata = JSON.parse(JSON.stringify(sessionSettings));
 
             //Remove the empty elements from the SDK
             cleanObject(contentMetadata);
@@ -534,21 +525,8 @@
          * @returns {{height: *, width: *, maxBitRate: *, linearPlaybackPositions: *, nonlinearPlaybackPositions: *, insertionPointFilter: *, referrerUrl: *, linearSlotSize: *}}
          */
         function getRequestSettingsFromSessionSettings(sessionSettings){
-            var requestSettings = {
-                height: sessionSettings.height,
-                width: sessionSettings.width,
-                maxBitRate: sessionSettings.maxBitRate,
-                linearPlaybackPositions: sessionSettings.linearPlaybackPositions,
-                nonlinearPlaybackPositions: sessionSettings.nonlinearPlaybackPositions,
-                insertionPointFilter: sessionSettings.insertionPointFilter,
-                referrerUrl: sessionSettings.referrerUrl,
-                linearSlotSize: sessionSettings.linearSlotSize,
-                maxLinearBreakDuration: sessionSettings.maxLinearBreakDuration,
-                enforceCacheBusting: sessionSettings.enforceCacheBusting,
-                useVASTSkipOffset: sessionSettings.useVASTSkipOffset,
-                seekMode: sessionSettings.seekMode,
-                preferredMediaFormat: sessionSettings.preferredMediaFormat
-            };
+
+            var requestSettings = JSON.parse(JSON.stringify(sessionSettings));
 
             //Remove the empty fields for the SDK
             cleanObject(requestSettings);
